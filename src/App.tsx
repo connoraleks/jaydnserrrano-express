@@ -1,24 +1,15 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-
+import {Header, About, Divider, Projects} from './components/lib';
+import { useResizeDetector } from 'react-resize-detector';
 function App() {
+  const { ref, width, height } = useResizeDetector();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div ref={ref} className={"max-w-3xl w-full mx-auto p-8 sm:p-16"}>
+      <Header width={width!} height={height!} />
+      <Divider id={"about"} />
+      <About width={width!} height={height!} />
+      <Divider id={"projects"} />
+      <Projects width={width!} height={height!} />
+      {/* <Footer /> */ }
     </div>
   );
 }

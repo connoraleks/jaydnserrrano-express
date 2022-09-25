@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+* {
+  box-sizing: border-box;
+  transition: all 0.15s ease;
+}
+html, body, #app {
+  margin: 0;
+  font-family: apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  height: 100vh;
+  width: 100vw;
+  scroll-behavior: smooth;
+  -webkit-scroll-behavior: smooth;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+h1{
+  font-family: 'Georgia', serif;
+}
+p{
+  font-family: 'Inter', sans-serif;
+}

@@ -3,9 +3,6 @@ const Navbar = ({wrapperStyle, linkStyle}: {wrapperStyle?: string, linkStyle?: s
         <nav className={wrapperStyle}>
             <a className={linkStyle} href="#about">About</a>
             <a className={linkStyle} href="#projects">Projects</a>
-            <a className={linkStyle} href="#experience">Experience</a>
-            <a className={linkStyle} href="#education">Education</a>
-            <a className={linkStyle} href="#skills">Skills</a>
             <a className={linkStyle} href="#contact">Contact</a>
         </nav>
     );

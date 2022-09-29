@@ -1,4 +1,4 @@
-import {Header, About, Divider, Projects} from './components/lib';
+import {Header, About, Divider, Projects, Contact} from './components/lib';
 import { useResizeDetector } from 'react-resize-detector';
 function App() {
   const { ref, width, height } = useResizeDetector();
@@ -9,6 +9,8 @@ function App() {
       <About width={width!} height={height!} />
       <Divider id={"projects"} />
       <Projects width={width!} height={height!} />
+      <Divider id={"contact"} />
+      <Contact width={width!} height={height!} />
       {/* <Footer /> */ }
     </div>
   );

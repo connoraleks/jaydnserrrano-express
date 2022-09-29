@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import {BsGithub} from 'react-icons/bs'
+import { IoArrowDown } from 'react-icons/io5'
 import {HiOutlineDesktopComputer} from 'react-icons/hi'
 const apiurl = 'https://api.github.com/users/connoraleks/repos';
 const colors = [
@@ -24,6 +25,7 @@ interface Project {
 }
 const Projects = ({width, height}: {width: number, height: number}) => {
     const [projects, setProjects] = useState<Project[]>([]);
+    const [windowSize, setWindowSize] = useState<number>(6);
     useEffect(() => {
         const fetchProjects = async () => {
             const response = await axios.get(apiurl);
@@ -42,11 +44,12 @@ const Projects = ({width, height}: {width: number, height: number}) => {
     return (
         <section className="w-full max-w-xl mx-auto">
             <h1 className="font-bold text-4xl mb-2">Projects</h1>
-            <p className="text-base text-zinc-700 mb-4">
+            <p className="text-base text-zinc-700 mb-8">
                 Here are some of my projects, displayed using the GitHub API. The source code for each project is provided as well as a live website if available.
             </p>
             <ul className="list-inside">
-                {projects.map((project, index) => {
+                {/* Show at most 5 projects */}
+                {projects.slice(0, windowSize-1).map((project, index) => {
                     return (
                         <li key={index} className="mb-8">
                             <div className={colors[index % colors.length]}/>
@@ -64,8 +67,13 @@ const Projects = ({width, height}: {width: number, height: number}) => {
                             </div>
                         </li>
                     );
-                })}
+                })}                
             </ul>
+            {/* Show button to expand if there are more than 5 projects */}
+            {projects.length > 5 && <div className="w-full flex justify-center"><button className="border rounded-full p-2 text-lg hover:bg-gray-100 duration-700" onClick={() => {
+                if(windowSize < projects.length) setWindowSize(projects.length);
+                else setWindowSize(6);
+                }}><IoArrowDown className={windowSize < projects.length ? "" : "rotate-180"}/></button></div>}
         </section>
     );
 };

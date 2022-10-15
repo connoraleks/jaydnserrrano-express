@@ -1,0 +1,21 @@
+{
+  "name": "node-jaydnserrano",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www",
+    "deploy-admin": "cd apps/jaydnserranoadmin && npm run build && cd ../.. && npm run deploy",
+    "deploy-frontend": "cd apps/jaydnserranofrontend && npm run build && cd ../.. && npm run deploy",
+    "start-admin": "cd apps/jaydnserranoadmin && npm start && cd ../..",
+    "start-frontend": "cd apps/jaydnserranofrontend && npm start && cd ../..",
+    "deploy": "eb deploy node-jaydnserrano-main"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "express": "~4.16.1",
+    "http-errors": "~1.6.3",
+    "jade": "~1.11.0",
+    "morgan": "~1.9.1"
+  }
+}

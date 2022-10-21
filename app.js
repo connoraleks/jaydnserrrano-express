@@ -7,9 +7,9 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 
 var app = express();
-// for app in local apps folder, app.use(express.static(path.join(__dirname, 'apps/app/build')));
-app.use(express.static(path.join(__dirname, 'apps/jaydnserranofrontend/build')));
-app.use(express.static(path.join(__dirname, 'apps/jaydnserranoadmin/build')));
+// for app in local apps folder, app.use(express.static(path.join(__dirname, 'app/build')));
+app.use(express.static(path.join(__dirname, 'jaydnserranofrontend/build')));
+app.use(express.static(path.join(__dirname, 'jaydnserranoadmin/build')));
 
 app.use(logger('dev'));
 app.use(express.json());

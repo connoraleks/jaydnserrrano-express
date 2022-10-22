@@ -16,3 +16,6 @@ pids
 *.pid
 *.seed
 
+# Ignore all files in the apps directory besides those that have build in their name
+apps/*
+!apps/*build*

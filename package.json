@@ -4,11 +4,22 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "deploy-admin": "cd apps/jaydnserranoadmin && npm run build && cd ../.. && npm run deploy",
-    "deploy-frontend": "cd apps/jaydnserranofrontend && npm run build && cd ../.. && npm run deploy",
+
+    "build-admin": "cd apps/jaydnserranoadmin && npm run build && cd ../..",
+    "build-frontend": "cd apps/jaydnserranofrontend && npm run build && cd ../..",
+    "build-all": "npm run build-admin && npm run build-frontend",
+
+    "deploy-admin": "npm run update-admin && npm run build-admin && eb deploy node-jaydnserrano-main",
+    "deploy-frontend": "npm run update-frontend && npm run build-frontend && eb deploy node-jaydnserrano-main",
+    "deploy-all": " npm run deploy-admin && npm run deploy-frontend",
+
     "start-admin": "cd apps/jaydnserranoadmin && npm start && cd ../..",
     "start-frontend": "cd apps/jaydnserranofrontend && npm start && cd ../..",
-    "deploy": "eb deploy node-jaydnserrano-main"
+    "start-all": "npm run start-admin && npm run start-frontend",
+
+    "update-admin": "cd apps/jaydnserranoadmin && npm update && npm upgrade -y && cd ../..",
+    "update-frontend": "cd apps/jaydnserranofrontend && npm update && npm upgrade -y && cd ../..",
+    "update-all": "npm run update-admin && npm run update-frontend && npm update && npm upgrade -y"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",

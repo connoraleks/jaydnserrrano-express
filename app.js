@@ -1,5 +1,11 @@
+var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
+var cookieParser = require('cookie-parser');
+var logger = require('morgan');
+
+var indexRouter = require('./routes/index');
+
 var app = express();
 // for app in local apps folder, app.use(express.static(path.join(__dirname, 'apps/app/build')));
 
@@ -17,12 +23,7 @@ app.use(express.static(path.join(__dirname, 'apps/jaydnserranoadmin/build')));
 app.use(function(req, res, next) {
   next(createError(404));
 });
-app.get('/admin', function(req, res) {
-  console.log('Received request from: ' + req.socket.remoteAddress + ' for ' + req.url);
-  res.sendFile(path.join(__dirname, 'jaydnserranoadmin/build', 'index.html'));
-});
-app.use('/', express.static(path.join(__dirname, 'jaydnserranofrontend/build')));
-app.use('/admin', express.static(path.join(__dirname, 'jaydnserranoadmin/build')));
+
 // error handler
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development

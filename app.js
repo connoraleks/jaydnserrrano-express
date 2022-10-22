@@ -1,16 +1,16 @@
 var express = require('express');
 var path = require('path');
-
 var app = express();
-app.use(express.static(path.join(__dirname, 'jaydnserranofrontend/build')));
-app.use(express.static(path.join(__dirname, 'jaydnserranoadmin/build')));
 app.get('/', function(req, res) {
+  console.log('Received request from: ' + req.socket.remoteAddress + ' for ' + req.url);
   res.sendFile(path.join(__dirname, 'jaydnserranofrontend/build', 'index.html'));
 });
 app.get('/admin', function(req, res) {
+  console.log('Received request from: ' + req.socket.remoteAddress + ' for ' + req.url);
   res.sendFile(path.join(__dirname, 'jaydnserranoadmin/build', 'index.html'));
 });
-
+app.use(express.static(path.join(__dirname, 'jaydnserranofrontend/build')));
+app.use(express.static(path.join(__dirname, 'jaydnserranoadmin/build')));
 // error handler
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development

@@ -8,8 +8,6 @@ var indexRouter = require('./routes/index');
 
 var app = express();
 // for app in local apps folder, app.use(express.static(path.join(__dirname, 'apps/app/build')));
-app.use(express.static(path.join(__dirname, 'apps/jaydnserranofrontend/build')));
-app.use(express.static(path.join(__dirname, 'apps/jaydnserranoadmin/build')));
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -18,6 +16,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
+app.use(express.static(path.join(__dirname, 'apps/jaydnserranofrontend/build')));
+app.use(express.static(path.join(__dirname, 'apps/jaydnserranoadmin/build')));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

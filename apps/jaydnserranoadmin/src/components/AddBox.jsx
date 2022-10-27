@@ -115,21 +115,7 @@ const AddBox = ({ onAdd, setNewDirent }) => {
                 {type === 0 && <div className='w-full flex flex-col gap-4'>
                     {/* Dropzone */}
                     <Dropzone onDrop={(acceptedFiles) => {
-                        acceptedFiles.forEach((file) => {
-                            const reader = new FileReader();
-                            reader.onabort = () => console.log('file reading was aborted');
-                            reader.onerror = () => console.log('file reading has failed');
-                            reader.onload = () => {
-                                const binaryStr = reader.result;
-                                const newFile = {
-                                    name: file.name,
-                                    src: binaryStr,
-                                }
-                                setUploadedFiles((prev) => [...prev, newFile]);
-                            }
-                            reader.readAsDataURL(file);
-                        }
-                        );
+                        acceptedFiles.forEach((file) => setUploadedFiles([...uploadedFiles, file]));
                     }}>
                         {({getRootProps, getInputProps}) => (
                         <Box sx={{ minWidth: 120 }}>

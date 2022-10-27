@@ -60,7 +60,7 @@ const AdminPanel = () => {
             <AddBox 
                 setNewDirent={setNewDirent} 
                 onAdd={(dirent) => {
-                    console.log(dirent);
+                    console.log(dirent.isDir === 1, dirent.isDir === 0);
                     if(dirent.isDir === 1) {
                         const formData = new FormData();
                         formData.append('name', dirent.name);
@@ -85,7 +85,8 @@ const AdminPanel = () => {
                             formData.append('name', dirent.files[x].name);
                             formData.append('parent', dirent.parent);
                             formData.append('isDir', dirent.isDir);
-                            formData.append('file', dirent.files[x]);
+                            formData.append('file', dirent.files[x], dirent.files[x].name);
+                            console.log(dirent.files[x]);
                             formData.append('action', 'add');
                             axios.post(`https://api.jaydnserrano.com/dirents`, formData, {
                                 headers: {

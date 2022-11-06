@@ -6,3 +6,8 @@
 
 # Node modules
 node_modules
+
+# Ignore all folders in apps that do not start with build-*
+apps/* 
+!apps/build-*
+

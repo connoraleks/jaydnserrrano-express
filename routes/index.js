@@ -5,11 +5,11 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
   console.log('index.js');
   // send the index.html file from the apps/jaydnserranofrontendbuild folder
-  res.sendFile('index.html', { root: 'apps/jaydnserranofrontendbuild' });
+  res.sendFile('index.html', { root: 'apps/jaydnserranofrontend/build' });
 });
 router.get('/admin', function(req, res, next) {
   console.log('admin.js');
   // send the index.html file from the apps/jaydnserranofrontendbuild folder
-  res.sendFile('index.html', { root: 'apps/jaydnserranoadminbuild' });
+  res.sendFile('index.html', { root: 'apps/jaydnserranoadmin/build' });
 });
 module.exports = router;

@@ -1,6 +1,0 @@
-[submodule "jaydnserranoadmin"]
-	path = apps/jaydnserranoadmin
-	url = https://github.com/connoraleks/jaydnserrano.com-admin.git
-[submodule "jaydnserranofrontend"]
-	path = apps/jaydnserranofrontend
-	url = https://github.com/connoraleks/jaydnserrano.com-frontend.git

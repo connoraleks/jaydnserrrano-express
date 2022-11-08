@@ -12,7 +12,7 @@
 
     "build-admin": "npm run update-admin && cd apps/jaydnserranoadmin && npm run build && mv build build-jaydnserranoadmin && rm -rf ../build-jaydnserranoadmin && mv build-jaydnserranoadmin .. && cd ../..",
     "build-frontend": "npm run update-frontend && cd apps/jaydnserranofrontend && npm run build && mv build build-jaydnserranofrontend && rm -rf ../build-jaydnserranofrontend && mv build-jaydnserranofrontend .. && cd ../..",
-    "build-all": "npm run update-all && npm run build-admin && npm run build-frontend",
+    "build-all": "npm run update-express && npm run build-admin && npm run build-frontend",
 
     "deploy": "npm run build-all && eb deploy node-jaydnserrano-main",
 
